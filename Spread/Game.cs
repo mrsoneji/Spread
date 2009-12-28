@@ -10,11 +10,13 @@ namespace Spread
         List<GameObject> iter_go;
 		
 		bool _mouseclicked = false;
+		float _wheelvalue = 0.0f;
 		
         public Game()
-            : base(800, 600, OpenTK.Graphics.GraphicsMode.Default, @"Spread: pre-alpha stage")
+            : base(1280, 800, OpenTK.Graphics.GraphicsMode.Default, @"Spread: pre-alpha stage")
         {
             gr = new Graphics();
+			this.WindowState = WindowState.Fullscreen; 
             iter_go = new List<GameObject>();
         }
 
@@ -40,6 +42,8 @@ namespace Spread
 					mi.OnMouseMove(Mouse.XDelta, Mouse.YDelta);
 					if (Mouse[OpenTK.Input.MouseButton.Left]){ mi.OnMouseClick(); _mouseclicked = true; }
 					if (!Mouse[OpenTK.Input.MouseButton.Left] && _mouseclicked){ mi.OnMouseRelease(); _mouseclicked = false; }
+					if (Mouse.WheelPrecise > _wheelvalue) { mi.OnWheelUp(Mouse.WheelPrecise); _wheelvalue = Mouse.WheelPrecise; }
+					if (Mouse.WheelPrecise < _wheelvalue) { mi.OnWheelDown(Mouse.WheelPrecise); _wheelvalue = Mouse.WheelPrecise; }
             }
 #endregion 
 			

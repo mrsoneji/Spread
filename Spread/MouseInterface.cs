@@ -10,7 +10,7 @@ namespace Spread
 		void OnMouseMove(int x, int y);
 		void OnMouseClick();
 		void OnMouseRelease();
-//		void OnWheelUp();
-//		void OnWheelDown();
+		void OnWheelUp(float z);
+		void OnWheelDown(float z);
 	}
 }

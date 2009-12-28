@@ -10,7 +10,7 @@ namespace Spread
         static void Main(string[] args)
         {
             Game g = new Game();
-            ActorObject ao = new ActorObject();
+            TableObject ao = new TableObject();
             g.GameObjects.Add(ao);
             g.Run();
         }
