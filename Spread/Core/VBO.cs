@@ -85,35 +85,35 @@ namespace Engine
         public void Draw(int lenght, BeginMode mode)
         {
             // Use VBOs if they are supported
-            //if (GL.SupportsExtension("VERSION_1_5"))
-            //{
-                GL.EnableClientState(EnableCap.VertexArray);
-                GL.EnableClientState(EnableCap.TextureCoordArray);
+//            if (GL.SupportsExtension("VERSION_1_5"))
+//            {
+//                GL.EnableClientState(EnableCap.VertexArray);
+//                GL.EnableClientState(EnableCap.TextureCoordArray);
+//
+//                GL.BindBuffer(BufferTarget.ArrayBuffer, vboID);
+//                GL.VertexPointer(2, VertexPointerType.Float, 0, 0);
+//
+//                GL.BindBuffer(BufferTarget.ArrayBuffer, texID);
+//                GL.TexCoordPointer(2, TexCoordPointerType.Float, 0, 0);
+//                
+//                GL.DrawArrays(mode, 0, lenght);
+//
+//                GL.DisableClientState(EnableCap.VertexArray);
+//                GL.DisableClientState(EnableCap.TextureCoordArray);
+//            }
+//            // Use immediate mode
+//            else
+//            {
+                GL.Begin(mode);
 
-                GL.BindBuffer(BufferTarget.ArrayBuffer, vboID);
-                GL.VertexPointer(2, VertexPointerType.Float, 0, 0);
+                for (int i = 0; i < lenght; i++)
+                {
+                    GL.TexCoord2(texcoords[i].u, texcoords[i].v);
+                    GL.Vertex2(vertices[i].x, vertices[i].y);
+                }
 
-                GL.BindBuffer(BufferTarget.ArrayBuffer, texID);
-                GL.TexCoordPointer(2, TexCoordPointerType.Float, 0, 0);
-                
-                GL.DrawArrays(mode, 0, lenght);
-
-                GL.DisableClientState(EnableCap.VertexArray);
-                GL.DisableClientState(EnableCap.TextureCoordArray);
-            //}
-            // Use immediate mode
-            //else
-            //{
-            //    GL.Begin(mode);
-
-            //    for (int i = 0; i < lenght; i++)
-            //    {
-            //        GL.TexCoord2(texcoords[i].u, texcoords[i].v);
-            //        GL.Vertex2(vertices[i].x, vertices[i].y);
-            //    }
-
-            //    GL.End();
-            //}
+                GL.End();
+//            }
         }
     }
 }

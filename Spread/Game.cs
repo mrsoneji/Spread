@@ -39,6 +39,8 @@ namespace Spread
 
             Engine.Core.Clear();
 
+			this.Flip();
+			
             SwapBuffers();
         }
 
