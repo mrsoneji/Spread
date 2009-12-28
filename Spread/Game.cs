@@ -8,7 +8,9 @@ namespace Spread
     {
         Graphics gr;
         List<GameObject> iter_go;
-
+		
+		bool _mouseclicked = false;
+		
         public Game()
             : base(800, 600, OpenTK.Graphics.GraphicsMode.Default, @"Spread: pre-alpha stage")
         {
@@ -27,7 +29,21 @@ namespace Spread
         {
             base.OnUpdateFrame(e);
 
-            if (Keyboard[OpenTK.Input.Key.Escape])
+#region interface call
+			foreach (KeyboardInterface ki in iter_go)
+            {
+                ki.OnKeyDown(Keyboard);
+            }
+			
+			foreach (MouseInterface mi in iter_go)
+            {
+					mi.OnMouseMove(Mouse.XDelta, Mouse.YDelta);
+					if (Mouse[OpenTK.Input.MouseButton.Left]){ mi.OnMouseClick(); _mouseclicked = true; }
+					if (!Mouse[OpenTK.Input.MouseButton.Left] && _mouseclicked){ mi.OnMouseRelease(); _mouseclicked = false; }
+            }
+#endregion 
+			
+			if (Keyboard[OpenTK.Input.Key.Escape])
             {
                 Exit();
             }
@@ -39,19 +55,16 @@ namespace Spread
 
             Engine.Core.Clear();
 
-			this.Flip();
-			
-            SwapBuffers();
-        }
-
-        public void Flip()
-        {
+#region interface call
             foreach (RenderInterface ri in iter_go)
             {
                 ri.Render(gr);
             }
+			
+            SwapBuffers();
         }
-
+#endregion
+		
         public List<GameObject> GameObjects
         {
             get

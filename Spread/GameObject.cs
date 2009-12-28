@@ -11,5 +11,9 @@ namespace Spread
 		public GameObject()
 		{
 		}
+
+		public virtual void Update()
+		{
+		}
 	}
 }
