@@ -5,7 +5,7 @@ namespace Spread
 {
 	public interface RenderInterface
 	{
-		void Render(Graphics g);
+		void Render();
         void LoadImage(string filename);
 	}
 }

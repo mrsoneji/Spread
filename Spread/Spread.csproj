@@ -48,9 +48,12 @@
     <Compile Include="Core\Graphics.cs" />
     <Compile Include="MouseInterface.cs" />
     <Compile Include="KeyboardInterface.cs" />
+    <Compile Include="States\GameState.cs" />
+    <Compile Include="States\GameMenuState.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Core\" />
+    <Folder Include="States\" />
   </ItemGroup>
 </Project>

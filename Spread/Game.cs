@@ -6,7 +6,6 @@ namespace Spread
 {
     public class Game: GameWindow 
     {
-        Graphics gr;
         List<GameObject> iter_go;
 		
 		bool _mouseclicked = false;
@@ -15,7 +14,6 @@ namespace Spread
         public Game()
             : base(1280, 800, OpenTK.Graphics.GraphicsMode.Default, @"Spread: pre-alpha stage")
         {
-            gr = new Graphics();
 			this.WindowState = WindowState.Fullscreen; 
             iter_go = new List<GameObject>();
         }
@@ -62,7 +60,7 @@ namespace Spread
 #region interface call
             foreach (RenderInterface ri in iter_go)
             {
-                ri.Render(gr);
+                ri.Render();
             }
 			
             SwapBuffers();
