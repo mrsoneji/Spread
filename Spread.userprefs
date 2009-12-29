@@ -1,0 +1,29 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Spread/RenderInterface.cs" ctype="Workbench">
+    <Files>
+      <File FileName="Spread/States/GameState.cs" Line="6" Column="9" />
+      <File FileName="Spread/TableObject.cs" Line="5" Column="22" />
+      <File FileName="Spread/Game.cs" Line="63" Column="24" />
+      <File FileName="Spread/States/GameMenuState.cs" Line="22" Column="1" />
+      <File FileName="Spread/GameObject.cs" Line="14" Column="1" />
+      <File FileName="Spread/RenderInterface.cs" Line="8" Column="15" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Spread" expanded="True">
+            <Node name="States" expanded="True" />
+            <Node name="RenderInterface.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" ctype="Workspace" />
+</Properties>
